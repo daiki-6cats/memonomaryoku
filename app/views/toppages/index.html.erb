@@ -1,2 +1,27 @@
-<h1>Let's try memo</h1>
-<p>✏︎</p>
+<div class="text-right">
+    <h1>Let's try memo</h1>
+</div>
+    <p>✏︎</p>
+
+<ul class="nav flex-column">
+  <li class="nav-item">
+<!-- これがTOPボタン -->
+<%= link_to "TOP", root_path, class: "btn btn-lg btn-primary" %>
+  </li>
+  <li class="nav-item">
+<!-- これがユーザー一覧ボタン -->
+<%= link_to "一覧", users_show_path, class: "btn btn-lg btn-primary" %>
+  </li>
+  <li class="nav-item">
+<!-- これが新規メモ作成画面ボタン -->
+<%= link_to "✏︎", root_path, class: "btn btn-lg btn-primary" %>
+  </li>
+  <li class="nav-item">
+<!-- これがお気に入りメモ一覧ボタン -->
+<%= link_to "♡",  root_path, class: "btn btn-lg btn-primary" %>
+  </li>
+  <li class="nav-item">
+<!-- これがログアウトボタン -->
+<%= link_to "OUT",  root_path, class: "btn btn-lg btn-primary" %>
+  </li>
+</ul>
