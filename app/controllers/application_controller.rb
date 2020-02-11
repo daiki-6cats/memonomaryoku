@@ -9,4 +9,8 @@ private
       redirect_to login_url
     end
   end
+  
+  def counts(user)
+    @count_memos = user.memos.count
+  end
 end

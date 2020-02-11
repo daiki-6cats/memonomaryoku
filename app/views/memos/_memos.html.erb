@@ -1,0 +1,20 @@
+<ul class="list-unstyled">
+  <% memos.each do |memo| %>
+    <li class="media mb-3">
+        <img class="mr-2 rounded-circle" src="<%= gravatar_url(memo.user, { size: 50 }) %>" alt="">
+        <div class="medeia-body">
+            <div>
+                <%= link_to memo.user.name, user_path(memo.user) %>
+                <span class="text-muted">posted at <%= memo.created_at %></span>
+            </div>
+            <div>
+                <p><%= memo.title %>
+                <% if current_user == memo.user %>
+                <%= link_to "Delete", memo, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger btn-sm" %>
+                <% end %></p>
+            </div>
+        </div>
+    </li>
+  <% end %>
+  <%= paginate memos %>
+</ul>
