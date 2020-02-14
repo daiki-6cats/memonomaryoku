@@ -1,16 +1,24 @@
 Rails.application.routes.draw do
-
-  get 'memos/new'
-  get 'memos/create'
-  get 'memos/destroy'
+  get 'relationships/create'
+  get 'relationships/destroy'
     root to: "toppages#index"
     
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
+  
+  get 'memos/new'
+  get 'memos/create'
+  get 'memos/destroy'
 
   get "signup", to: "users#new"
-  get "umakuhanneisareteirukana", to: "users#create"
-  resources :users, only: [:index, :show, :new, :create]
+  resources :users, only: [:index, :show, :new, :create] do
+    member do
+      get :followings
+      get :followers
+    end
+  end
+  
   resources :memos, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   end

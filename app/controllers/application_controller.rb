@@ -12,5 +12,7 @@ private
   
   def counts(user)
     @count_memos = user.memos.count
+    @count_followings = user.followings.count
+    @count_followers = user.followers.count
   end
 end

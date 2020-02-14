@@ -23,7 +23,7 @@
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= "active" if current_page?(followers_user_path(@user)) %>"フォロワー <span class="badge badge-secondary"><%= @count_followers %></a></li>
     </ul>
     
-<%= render "memos/memos", memos: @memos %>    
+<%= render 'users', users: @followings %>
 
   </div>
 </div>
