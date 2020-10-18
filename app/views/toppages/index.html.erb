@@ -1,37 +1,32 @@
 <% if logged_in? %>
 
-  <p><%= current_user.name %></p>
 
-<div class="text-right">
-    <h1>Let's try memo</h1>
-</div>
-    <p>✏︎</p>
 
 <div class="row">
-  <aside class="col-sm-3"
-  <ul class="nav flex-column" style="list-style: none;">
-    <li class="nav-item">
-<!-- これがTOPボタン -->
-<%= link_to "TOP", root_path, class: "btn btn-lg btn-primary" %>
-    </li>
-    <li class="nav-item">
-<!-- これがユーザー一覧ボタン -->
-<%= link_to "一覧", users_path, class: "btn btn-lg btn-primary" %>
-    </li>
-    <li class="nav-item">
-<!-- これが新規メモ作成画面ボタン -->
-<%= link_to "✏︎", root_path, class: "btn btn-lg btn-primary" %>
-    </li>
-    <li class="nav-item">
-<!-- これがお気に入りメモ一覧ボタン -->
-<%= link_to "♡",  root_path, class: "btn btn-lg btn-primary" %>
-    </li>
-    <li class="nav-item">
-<!-- これがログアウトボタン -->
-<%= link_to 'Logout', logout_path, method: :delete, class: "btn btn-lg btn-primary" %></li>
-  </ul>
+  <aside class="col-sm-2">
+<%= render 'users/aside' %>
   </aside>
-  <div class="col-sm-9">
+  <div class="col-sm-10">
+    <div class="f-container">
+      <div class="mr-4">
+        <img class="rounded-circle img-fluid" src="<%= gravatar_url(current_user, { size: 120 }) %>" alt="">
+      </div>
+      <div class="left">
+        <h1>Let's try memo
+          <span>
+            <%= link_to memos_new_path do %>
+            <span class="pencil-alt 2x my-gray">
+              <%= fa_icon("pencil-alt") %>
+            </span>
+          <% end %>
+          </span>
+        </h1>
+      </div>
+    </div>
+    
+    <div class="siinas">
+      <%= current_user.name %>
+    </div>
   <%= render "memos/memos", memos: @memos %>
   </div>
 </div>

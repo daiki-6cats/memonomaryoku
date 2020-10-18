@@ -1,0 +1,21 @@
+<% if current_user.likes?(memo) %>
+
+<%= form_with(model: current_user.favorites.find_by(memo_id: memo.id), local: true, method: :delete) do |f| %>
+<%= hidden_field_tag :memo_id, memo.id %>
+
+<%= button_tag type: 'submit', class: "btn btn-link text-secondary" do %>
+  <i class="fas fa-heart-broken "></i>
+<% end %>
+<% end %>
+<% else %>
+
+<%= form_with(model: current_user.favorites.build, local: true) do |f| %>
+
+<%= hidden_field_tag :memo_id, memo.id %>
+
+<%= button_tag type: 'submit', class: "btn btn-link text-secondary" do %>
+    <i class="fas fa-heart"></i>
+<% end %>
+
+<% end %>
+<% end %>

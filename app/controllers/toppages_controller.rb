@@ -4,7 +4,7 @@ class ToppagesController < ApplicationController
   def index
     if logged_in?
       @memo = current_user.memos.build #form_with用
-      @memos = current_user.memos.order(id: :desc).page(params[:page])
+      @memos = current_user.feed_memos.order(id: :desc).page(params[:page])
       #memosはトップページにmemo一覧を作るため
     end
   end

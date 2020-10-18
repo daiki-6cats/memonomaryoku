@@ -5,11 +5,9 @@
         <img class="rounded-circle" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">
         <div class="col-md">
           <div class="media-body">
+
             <div>
-              <%= user.name %>
-            </div>
-            <div>
-<%= link_to 'View profile', user_path(user) %>
+<%= link_to user.name, user_path(user) %>
 <%= render "relationships/follow_button", user: user %>
             </div>
           </div>

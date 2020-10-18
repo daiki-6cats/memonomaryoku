@@ -1,0 +1,54 @@
+
+<%= form_with(model: @memo, local: true) do |f| %>
+<%= @memo.created_at.strftime('%Y/%m/%d') %>
+
+
+<div class="row">
+  <div class="col-6">
+    <textarea disabled rows=1 cols=40>
+<%= @memo.title %>
+    </textarea>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-2">     
+<%= f.label :wrap, '要約' %>
+    <textarea disabled rows=20 cols=20>
+<%= @memo.wrap %>
+    </textarea>
+    </div>
+    
+  <div class="col-4">    
+  <%= f.label :fact, '事実' %>
+    <textarea disabled rows=20 cols=40>
+<%= @memo.fact %>
+    </textarea>
+    </div>
+    
+  <div class="col-3">
+<%= f.label :abstract, '抽象化' %>
+    <textarea disabled rows=20 cols=30>
+<%= @memo.abstract %>
+    </textarea>
+    </div>
+  
+  <div class="col-3">
+<%= f.label :diversion, '転用' %>
+    <textarea disabled rows=20 cols=30>
+<%= @memo.diversion %>
+    </textarea>
+    </div>
+</div>
+
+<% end %>
+
+<div class="row">
+  <div class="col-3">
+<%= link_to '一覧に戻る', root_path %>
+  </div>
+  
+  <div class="offset-7 col-2">
+<%= render "favorites/favorite_button", memo: @memo %>
+  </div>
+</div>

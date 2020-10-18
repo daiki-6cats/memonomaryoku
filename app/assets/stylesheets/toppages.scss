@@ -1,3 +1,25 @@
 // Place all the styles related to the toppages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.f-container {
+	display:flex;
+	padding-top: 30px;
+}
+.f-container1 {
+    justify-content: flex-start;
+}
+
+.siina {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+.left {
+    padding-left: 30px;
+}
+
+h1 {
+    padding-top: 55px;
+}

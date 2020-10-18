@@ -3,7 +3,6 @@
    <aside class="col-sm-2">
 <%= render 'aside' %>
   </aside>
-  
   <div class="col-sm-10">
      <div>
     <img class="rounded-circle img-fluid" src="
@@ -12,7 +11,6 @@
 <%= link_to "✏︎︎", memos_new_path %>
      </div>
        <p><%= current_user.name %></p>
-       
     <ul class="nav nav-tabs nav-justified mb-3">
       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link 
 <%= 'active' if current_page?(user_path(@user)) %>
@@ -23,7 +21,7 @@
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= "active" if current_page?(followers_user_path(@user)) %>">フォロワー <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
     </ul>
     
-<%= render "users", users: @followers %>    
+<%= render 'users', users: @followings %>
 
   </div>
 </div>

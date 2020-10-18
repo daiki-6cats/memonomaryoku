@@ -14,5 +14,6 @@ private
     @count_memos = user.memos.count
     @count_followings = user.followings.count
     @count_followers = user.followers.count
+    @count_likes = user.likes.count
   end
 end

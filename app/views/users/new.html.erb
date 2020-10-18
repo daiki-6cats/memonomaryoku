@@ -10,48 +10,56 @@
 <%= render 'layouts/error_messages', model: f.object %>
 <!-- renderを入れたことでエラーメッセージが追加された -->
 
+<!-- Name新規登録箇所 -->
+
+      <div class="form-group">
+        <div class="cp_iptxt">
+	        <input class="ef" type="text" name="user[name]" id="user_name" >
+	        <label>Name</label>
+	        <span class="focus_line"></span>
+        </div>
+      </div>
+<!-- Name新規登録箇所ここまで -->
+<!-- Email新規登録箇所 -->
+
+      <div class="form-group">
+        <div class="cp_iptxt">
+	        <input class="ef" type="text" name="user[email]" id="user_email" >
+	        <label>Email</label>
+	        <span class="focus_line"></span>
+        </div>
+      </div>
       
-      <div class="form-group">
-        
-<%= f.label :name, 'Name' %>
+<!-- Email新規登録箇所ここまで -->
 
-        
-<%= f.text_field :name, class: 'form-control' %>
-
-      </div>
+<!-- password新規登録箇所 -->
 
       <div class="form-group">
-        
-<%= f.label :email, 'Email' %>
 
+        <div class="cp_iptxt">
+	        <input class="ef" type="password" name="user[password]" id="user_password" >
+	        <label>Password</label>
+	        <span class="focus_line"></span>
+        </div>
         
-<%= f.email_field :email, class: 'form-control' %>
-
       </div>
+
+<!-- password新規登録箇所ここまで -->
+
+<!-- 確認password新規登録箇所 -->
 
       <div class="form-group">
-        
-<%= f.label :password, 'Password' %>
 
+        <div class="cp_iptxt">
+	        <input class="ef" type="password" name="user[password_confirmation]" id="password_confirmation" >
+	        <label>Confirmation</label>
+	        <span class="focus_line"></span>
+        </div>
         
-<%= f.password_field :password, class: 'form-control' %>
-
       </div>
-
-      <div class="form-group">
-        
-<%= f.label :password_confirmation, 'Confirmation' %>
-
-        
-<%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      </div>
-
       
-<%= f.submit 'メモの世界へようこそ', class: 'btn btn-primary btn-block' %>
-
-    
-<% end %>
-
+<!-- 確認password新規登録箇所ここまで -->
+ <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
+ <% end %>
   </div>
 </div>

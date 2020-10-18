@@ -1,2 +1,56 @@
-<h1>Memos#new</h1>
-<p>Find me in app/views/memos/new.html.erb</p>
+    <script>
+      var today=new Date(); 
+
+//年・月・日・曜日を取得
+var year = today.getFullYear();
+var month = today.getMonth()+1;
+var week = today.getDay();
+var day = today.getDate();
+
+//年・月・日・曜日を書き出す
+document.write(year+"年"+month+"月"+day+"日 ");
+    </script>
+<%= form_with(model: @memo, local: true) do |f| %>
+
+<div class="row">
+  <div class="col-6">
+    <%= f.label :title, 'タイトル' %>
+    <%= f.text_field :title, size: "40x1" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-2">     
+<%= f.label :wrap, '要約' %>
+<%= f.text_area :wrap, size: "1x20", class: "form-control" %>
+  </div>
+  <div class="col-4">    
+  <%= f.label :fact, '事実' %>
+  <%= f.text_area :fact, size: "1x20", class: "form-control" %>
+  </div>
+  <div class="col-3">
+<%= f.label :abstract, '抽象化' %>
+<%= f.text_area :abstract, size: "1x20", class: "form-control" %>
+  </div>
+  <div class="col-3">
+<%= f.label :diversion, '転用' %>
+<%= f.text_area :diversion, size: "1x20", class: "form-control" %>  
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+<%= link_to root_path, class: "btn btn-link text-secondary" do %>
+<i class="fas fa-undo fa-rotate-270 fa-3x"></i>
+<% end %>
+  </div>
+  
+  <div class="offset-8 col-1">
+<%= button_tag type: 'submit', class: "btn btn-link text-secondary" do %>
+<i class="fas fa-pencil-alt fa-rotate-270 fa-3x"></i>
+<% end %>
+  </div>
+</div>
+
+<% end %>
+

@@ -1,2 +1,18 @@
 
-<%= render 'users', users: @users %>
+<div class="row">
+  <aside class="col-sm-2">
+<%= render 'aside' %>
+  </aside>
+  
+  <div class="col-sm-10">
+     <div>
+    <img class="rounded-circle img-fluid" src="
+<%= gravatar_url(current_user, { size: 100 }) %>
+" alt=""><p>Let's try memo</p>
+<%= link_to "✏︎︎", memos_new_path %>
+     </div>
+       <p><%= current_user.name %></p>
+
+      <%= render 'users', users: @users %>
+  </div>
+</div>

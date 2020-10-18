@@ -3,6 +3,7 @@ class MemosController < ApplicationController
   before_action :correct_user, only: [:destroy]
 
   def new
+    @memo = Memo.new
   end
 
   def create
@@ -11,7 +12,7 @@ class MemosController < ApplicationController
       flash[:success] = "メモを投稿しました"
       redirect_to root_url
     else
-      @memos = current_user.memos.order(id: :desc).page(params[:page])
+      @memos = current_user.feed_memos.order(id: :desc).page(params[:page])
       flash.now[:danger] = "メモの送信に失敗しました"
       render "toppages/index"
     end
@@ -21,6 +22,10 @@ class MemosController < ApplicationController
     @memo.destroy
     flash[:success] = "メモを削除しました"
     redirect_back(fallback_location: root_path)
+  end
+  
+  def show
+    @memo = Memo.find(params[:id])
   end
 
   def memo_params

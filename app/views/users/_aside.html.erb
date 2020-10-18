@@ -1,0 +1,41 @@
+  <ul class="nav flex-column" style="list-style: none;">
+    <li class="nav-item">
+<!-- これがTOPボタン -->
+<%= link_to root_path do %>
+<div class="home 2x my-gray">
+<%= fa_icon("home 2x") %>
+</div>
+<% end %>    
+    </li>
+    <li class="nav-item">
+<!-- これがユーザー一覧ボタン -->
+<%= link_to users_path do %>
+<div class="users 2x my-gray">
+<%= fa_icon("users 2x") %>
+</div>
+<% end %>
+    </li>
+    <li class="nav-item">
+<!-- これが新規メモ作成画面ボタン -->
+<%= link_to memos_new_path do %>
+<div class="pencil-alt 2x my-gray">
+<%= fa_icon("pencil-alt 2x") %>
+</div>
+<% end %>
+    </li>
+    <li class="nav-item">
+<!-- これがお気に入りメモ一覧ボタン -->
+<%= link_to likes_user_path(current_user) do %>
+<div class="heart 2x my-gray">
+<%= fa_icon("heart 2x") %>
+</div>
+<% end %>
+    </li>
+    <li class="nav-item">
+<!-- これがログアウトボタン -->
+<%= link_to logout_path, method: :delete do %></li>
+<div class="walking 2x my-gray">
+<%= fa_icon("walking 2x") %>
+</div>
+<% end %>
+  </ul>
